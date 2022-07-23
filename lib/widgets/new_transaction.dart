@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
+  final Function addTx;
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+
+  NewTransaction(this.addTx);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,10 @@ class NewTransaction extends StatelessWidget {
               child: Text('Add Transaction'),
               style: TextButton.styleFrom(primary: Colors.purple),
               onPressed: () {
-                print(titleController.text);
+                print(addTx(
+                  titleController.text,
+                  double.tryParse(amountController.text),
+                ));
               },
             )
           ],
