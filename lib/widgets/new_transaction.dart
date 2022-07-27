@@ -1,3 +1,6 @@
+import 'dart:js';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
@@ -21,6 +24,8 @@ class NewTransaction extends StatelessWidget {
         enteredAmount,
       ),
     );
+
+    Navigator.of(context).pop();
   }
 
   @override
