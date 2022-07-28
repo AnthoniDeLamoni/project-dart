@@ -24,8 +24,6 @@ class NewTransaction extends StatelessWidget {
         enteredAmount,
       ),
     );
-
-    Navigator.of(context).pop();
   }
 
   @override
