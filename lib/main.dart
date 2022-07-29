@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/models/transaction.dart';
 import 'package:flutter_complete_guide/widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
-import 'dart:js';
 
 void main() => runApp(MyApp());
 
@@ -12,18 +11,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Expense Planner',
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          accentColor: Colors.indigo,
-          fontFamily: 'Quicksand',
-          appBarTheme: AppBarTheme(
-            textTheme: ThemeData.light().textTheme.copyWith(
-                  headline6: TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-          )),
+        primarySwatch: Colors.green,
+        accentColor: Colors.indigo,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleMedium: TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 19,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'Quicksand',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       home: MyHomePage(),
     );
   }
@@ -36,18 +41,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 'a1',
-      title: 'Keyboard',
-      amount: 59.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'a2',
-      title: 'Brand New Shoes',
-      amount: 49.99,
-      date: DateTime.now(),
-    )
+    // Transaction(
+    //   id: 'a1',
+    //   title: 'Keyboard',
+    //   amount: 59.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 'a2',
+    //   title: 'Brand New Shoes',
+    //   amount: 49.99,
+    //   date: DateTime.now(),
+    // )
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
@@ -78,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           'Expense Planner',
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         actions: <Widget>[
           IconButton(
