@@ -48,9 +48,27 @@ class NewTransaction extends StatelessWidget {
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
             ),
-            TextButton(
+            Container(
+              height: 80,
+              child: Row(
+                children: <Widget>[
+                  Text('No Date Chosen!'),
+                  TextButton(
+                    style: TextButton.styleFrom(primary: Colors.green),
+                    child: Text(
+                      'Choose Date',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            ElevatedButton(
               child: Text('Add Transaction'),
-              style: TextButton.styleFrom(primary: Colors.purple),
+              style: TextButton.styleFrom(primary: Colors.white),
               onPressed: submitData,
             )
           ],
